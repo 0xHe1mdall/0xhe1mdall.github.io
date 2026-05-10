@@ -1,0 +1,71 @@
+/* Mobile / narrow viewport fallback.
+   Goal: keep the IDE look on desktop, become readable on phones.
+   No redesign — just unlocks scrolling and stacks panels. */
+
+@media (max-width: 900px) {
+  html, body {
+    overflow: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+  body {
+    height: auto;
+  }
+  .main-layout {
+    flex-direction: column;
+    overflow: visible;
+  }
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .left-panel {
+    max-height: 220px;
+  }
+  .right-panel {
+    /* Minimap is desktop-only flair; not useful at this width. */
+    display: none;
+  }
+  .content-area {
+    overflow: visible;
+  }
+  .graph-view,
+  .hlil-view {
+    min-height: 60vh;
+  }
+  .bottom-panel {
+    height: auto;
+    min-height: 120px;
+  }
+  .fn-sig {
+    /* Wraps onto its own line on narrow viewports */
+    margin-left: 0;
+    flex-basis: 100%;
+    order: 99;
+    padding-top: var(--space-1);
+  }
+  .view-toolbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: var(--space-2) var(--space-4);
+  }
+  .modal {
+    width: 100%;
+    max-width: 95vw;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .titlebar { display: none; }
+  .statusbar {
+    font-size: 9px;
+    gap: var(--space-2);
+  }
+  .status-right { gap: var(--space-2); }
+}

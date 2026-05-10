@@ -1,0 +1,248 @@
+/* The IDE shell: tabs, view toolbar, panels, status bar.
+   Component-specific styling lives in components.css. */
+
+/* ---------- Tabs bar ---------- */
+.tabs-bar {
+  height: 34px;
+  background: var(--bg-darker);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-end;
+  padding: 0 var(--space-3);
+  gap: 2px;
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs-bar::-webkit-scrollbar { display: none; }
+
+.tab {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: background var(--transition), color var(--transition);
+}
+.tab[aria-selected='true'] {
+  background: var(--bg);
+  color: var(--text);
+  border-color: var(--border-light);
+  border-bottom-color: var(--bg);
+  z-index: 1;
+}
+.tab:hover:not([aria-selected='true']) {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+.tab-close {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 10px;
+  color: var(--text-faint);
+  pointer-events: none; /* purely decorative */
+}
+.tab-add {
+  height: 22px;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-faint);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  align-self: center;
+  pointer-events: none; /* decorative */
+}
+
+/* ---------- View toolbar ---------- */
+.view-toolbar {
+  height: var(--toolbar-h);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+.view-btn {
+  height: 26px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  transition: background var(--transition), color var(--transition);
+  border: 1px solid transparent;
+}
+.view-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+.view-btn[aria-pressed='true'] {
+  background: var(--bg-active);
+  color: #7ab9cc;
+  border-color: #3a6070;
+}
+.view-btn .chevron {
+  font-size: 9px;
+  opacity: 0.7;
+}
+.view-separator {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 var(--space-1);
+}
+.fn-sig {
+  margin-left: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  user-select: text;
+}
+
+/* ---------- Main layout ---------- */
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ---------- Side panels ---------- */
+.left-panel,
+.right-panel {
+  background: var(--bg-darker);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.left-panel {
+  width: var(--sidebar-w);
+  border-right: 1px solid var(--border);
+}
+.right-panel {
+  width: var(--rightpanel-w);
+  border-left: 1px solid var(--border);
+}
+
+.panel-header {
+  height: 30px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-3);
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+.panel-title {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  flex: 1;
+}
+.panel-icon-btn {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-faint);
+  font-size: 11px;
+  pointer-events: none; /* decorative */
+}
+
+/* ---------- Content area ---------- */
+.content-area {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 0;
+}
+
+/* ---------- Bottom panel (xrefs) ---------- */
+.bottom-panel {
+  height: var(--bottompanel-h);
+  background: var(--bg-darker);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.bottom-tabs {
+  height: 28px;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border);
+  padding: 0 var(--space-3);
+  gap: 1px;
+}
+.btab {
+  height: 24px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  border-radius: 3px 3px 0 0;
+  transition: background var(--transition), color var(--transition);
+  border: 1px solid transparent;
+  border-bottom: none;
+}
+.btab[aria-selected='true'] {
+  background: var(--bg);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+.btab:hover:not([aria-selected='true']) {
+  background: var(--bg-hover);
+  color: var(--text-muted);
+}
+
+/* ---------- Status bar ---------- */
+.statusbar {
+  height: var(--statusbar-h);
+  background: #1a3a42;
+  border-top: 1px solid #2a5560;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-3);
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+.status-item {
+  font-size: 10px;
+  color: #7ab9cc;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+.status-sep { color: #2a5560; }
+.status-right {
+  margin-left: auto;
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}

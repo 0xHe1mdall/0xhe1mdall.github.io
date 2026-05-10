@@ -1,0 +1,13 @@
+/* Syntax highlighting classes — used by the highlight tagged template
+   helper and inside data files. Matches Binary Ninja palette. */
+
+.kw   { color: var(--syn-keyword); }
+.ty   { color: var(--syn-type); }
+.fn   { color: var(--syn-func); }
+.str  { color: var(--syn-string); }
+.num  { color: var(--syn-number); }
+.cmt  { color: var(--syn-comment); font-style: italic; }
+.op   { color: var(--syn-operator); }
+.pm   { color: var(--syn-param); }
+.addr { color: var(--syn-addr); }
+.lbl  { color: var(--syn-label); }

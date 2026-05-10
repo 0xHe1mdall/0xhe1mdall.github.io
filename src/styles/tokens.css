@@ -1,0 +1,81 @@
+/**
+ * Design tokens — single source of truth for all colors, spacing, typography.
+ * Change a value here and it propagates everywhere.
+ *
+ * Palette is the original Binary Ninja-inspired dark theme. Do not change
+ * these values without intent: they define the artistic direction.
+ */
+:root {
+  /* Fonts (loaded via @fontsource) */
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --font-ui:   'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Surfaces */
+  --bg:           #1e1e1e;
+  --bg-darker:    #171717;
+  --bg-panel:     #252525;
+  --bg-active:    #2d4a6e;
+  --bg-hover:     #2a2a2a;
+  --border:       #3a3a3a;
+  --border-light: #444;
+
+  /* Text */
+  --text:         #d4d4d4;
+  --text-muted:   #888;
+  --text-faint:   #555;
+  --text-inverse: #1e1e1e;
+
+  /* Syntax highlighting (Binary Ninja-like) */
+  --syn-keyword:  #c678dd;
+  --syn-type:     #e5c07b;
+  --syn-func:     #61afef;
+  --syn-string:   #98c379;
+  --syn-number:   #d19a66;
+  --syn-comment:  #5c6370;
+  --syn-operator: #56b6c2;
+  --syn-param:    #e06c75;
+  --syn-addr:     #4fa5c0;
+  --syn-label:    #abb2bf;
+  --syn-green:    #98c379;
+
+  /* Accent */
+  --accent:       #4f98a3;
+  --accent-hover: #5ab4c2;
+  --accent-bg:    #1e3a3e;
+
+  /* Graph blocks */
+  --block-bg:     #252525;
+  --block-border: #444;
+  --block-header: #2c2c2c;
+  --edge-true:    #5a8a3a;
+  --edge-false:   #c0392b;
+  --edge-normal:  #666;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  /* Layout sizes */
+  --sidebar-w:    220px;
+  --rightpanel-w: 180px;
+  --titlebar-h:   32px;
+  --toolbar-h:    40px;
+  --statusbar-h:  24px;
+  --bottompanel-h: 140px;
+
+  /* Type scale */
+  --text-xs:   0.7rem;
+  --text-sm:   0.75rem;
+  --text-base: 0.8125rem;
+  --text-lg:   0.875rem;
+
+  /* Misc */
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --transition: 120ms ease;
+}
